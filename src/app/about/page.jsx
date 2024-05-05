@@ -51,8 +51,8 @@ const AboutPage = () => {
             </p>
             {/* BIOGRAPHY QUOTE */}
             <span className="italic">
-              "I am always looking to learn new technologies and improve my
-              skills." - Gyan Patap Singh
+            &quot; I am always looking to learn new technologies and improve my
+              skills. &quot; - Gyan Patap Singh
             </span>
             {/* BIOGRAPHY SIGN SVG*/}
             <div className="self-end">
