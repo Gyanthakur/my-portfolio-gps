@@ -10,7 +10,7 @@ const items = [
     color: "from-red-300 to-blue-300",
     title: "Notes_Store App",
     desc: "Notes_store app is a simple note-taking app that allows you to take notes, images, create to-do lists, and save important information and also publish your document. It is built using Next-js, Tailwind CSS, and Convex.",
-    img: "/note.png",
+    img: "/notes-store.png",
     link: "https://notes-store-app.vercel.app/",
   },
   {
