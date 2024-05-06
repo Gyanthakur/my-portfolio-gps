@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/transitionProvider";
-import { IconBase, Moon } from "@phosphor-icons/react";
 
 const inter = Inter({ subsets: ["latin"] });
 

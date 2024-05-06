@@ -193,29 +193,29 @@ const AboutPage = () => {
               className=""
             >
               {/* EXPERIENCE LIST ITEM */}
-              <div className="flex justify-between h-48">
+              <div className="flex justify-between h-60">
                 {/* LEFT */}
                 <div className="w-1/3 ">
                   {/* JOB TITLE */}
-                  <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Senior JavaScript Engineer
+                  <div className="text-green-500  p-3 font-semibold rounded-b-lg rounded-s-lg">
+                    MERN Stack Intern
                   </div>
                   {/* JOB DESC */}
                   <div className="p-3 text-sm italic">
-                    I led web development, offering expertise in JavaScript
-                    frameworks.{" "}
+                  I worked on a project using the MERN stack.{" "}
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2024 - Present
+                    Aug/2024 - Oct/2024
                   </div>
                   {/* JOB COMPANY */}
-                  <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
-                    Apple
+                  <div className="p-1 rounded text-sm font-semibold w-fit">
+                    <h2 className="text-blue-600">At: Web Stack Academy </h2> 
+                    
                   </div>
                 </div>
                 {/* CENTER */}
-                <div className="w-1/6 flex justify-center">
+                <div className="w-1/6 h-[150vh] flex justify-center">
                   {/* LINE */}
                   <div className="w-1 h-full bg-gray-600 rounded relative">
                     {/* LINE CIRCLE */}
@@ -240,21 +240,20 @@ const AboutPage = () => {
                 {/* RIGHT */}
                 <div className="w-1/3 ">
                   {/* JOB TITLE */}
-                  <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Senior React Developer
+                  <div className="text-green-500  p-3 font-semibold rounded-b-lg rounded-s-lg">
+                    Student 
                   </div>
                   {/* JOB DESC */}
                   <div className="p-3 text-sm italic">
-                    I spearheaded React-based application development,
-                    leveraging advanced skills.{" "}
+                    I am currently persuing in B.Tech @Computer Sc. & engineering.{" "}
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2019 - 2024{" "}
+                    2021 - present{" "}
                   </div>
                   {/* JOB COMPANY */}
-                  <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
-                    Microsoft
+                  <div className="p-1 rounded text-sm font-semibold w-fit">
+                  <h2 className="text-blue-600">At: KNIT Sultanpur</h2>
                   </div>
                 </div>
               </div>
@@ -263,17 +262,21 @@ const AboutPage = () => {
                 {/* LEFT */}
                 <div className="w-1/3 ">
                   {/* JOB TITLE */}
-                  <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Freelancer{" "}
+                  <div className="text-green-500 p-3 font-semibold rounded-b-lg rounded-s-lg">
+                    FFE Schlor{" "}
                   </div>
                   {/* JOB DESC */}
                   <div className="p-3 text-sm italic">
-                    I provided web solutions, applying a range of technologies
-                    to address client requirements.{" "}
+                    I am a FFE Schlor and I am currently working on a project.{" "}
+                    
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2010 - 2019{" "}
+                    2021 - present{" "}
+                  </div>
+                  {/* JOB COMPANY */}
+                  <div className="p-1 rounded text-sm font-semibold w-fit">
+                  <h2 className="text-blue-600">At: Foundation for Excellence (FFE) </h2>
                   </div>
                 </div>
                 {/* CENTER */}

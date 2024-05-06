@@ -101,23 +101,23 @@ const Navbar = () => {
       {/* SOCIAL */}
       <div className="hidden md:flex gap-4 w-1/3">
 				<Link href="https://github.com/Gyanthakur">
-					<GithubLogo size={30} />
+					<GithubLogo size={30} className="hover:text-red-500"/>
 				</Link>
 				<Link href="https://wa.me/918957818597">
-					<WhatsappLogo size={30} />
+					<WhatsappLogo size={30} className="hover:text-red-500"/>
 				</Link>
 				<Link href="https://www.instagram.com/gp.singh.ro.ckstar4438/">
-					<InstagramLogo size={30} />
+					<InstagramLogo size={30} className="hover:text-red-500"/>
 				</Link>
 				<Link href="https://www.facebook.com/profile.php?id=100026766931684">
-					<FacebookLogo size={30} />
+					<FacebookLogo size={30} className="hover:text-red-500"/>
 				</Link>
 				<Link href="https://twitter.com/gps_96169">
-					<TwitterLogo size={30} />
+					<TwitterLogo size={30} className="hover:text-red-500"/>
 				</Link>
 
 				<Link href="https://www.linkedin.com/in/gyan-pratap-singh-275785236/">
-					<LinkedinLogo size={30} />
+					<LinkedinLogo size={30} className="hover:text-red-500"/>
 				</Link>
 				<button> <Moon size={30}/></button>
 			</div>
