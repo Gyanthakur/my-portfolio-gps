@@ -215,7 +215,7 @@ const AboutPage = () => {
                   </div>
                 </div>
                 {/* CENTER */}
-                <div className="w-1/6 h-[150vh] flex justify-center">
+                <div className="w-1/6 h-[100vh] flex justify-center">
                   {/* LINE */}
                   <div className="w-1 h-full bg-gray-600 rounded relative">
                     {/* LINE CIRCLE */}

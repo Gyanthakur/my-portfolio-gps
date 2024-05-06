@@ -48,9 +48,9 @@ const Homepage = () => {
 					</div>
 				</div>
 			</div>
-			<div>
+			{/* <div>
 				<AboutPage />
-			</div>
+			</div> */}
 			<div>
 				<PortfolioPage />
 			</div>
