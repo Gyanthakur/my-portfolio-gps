@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import Footer from "../footer/page";
 
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
@@ -97,6 +98,9 @@ const ContactPage = () => {
             </span>
           )}
         </form>
+      </div>
+      <div>
+        <Footer/>
       </div>
     </motion.div>
   );

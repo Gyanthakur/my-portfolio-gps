@@ -8,35 +8,12 @@ const items = [
   {
     id: 1,
     color: "from-red-300 to-blue-300",
-    title: "Notes_Store App",
-    desc: "Notes_store app is a simple note-taking app that allows you to take notes, images, create to-do lists, and save important information and also publish your document. It is built using Next-js, Tailwind CSS, and Convex.",
-    img: "/notes-store.png",
-    link: "https://notes-store-app.vercel.app/",
-  },
-  {
-    id: 2,
-    color: "from-blue-300 to-violet-300",
-    title: "Next.js Medium Blog",
+    title: "React Commerce",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
-    img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    link: "https://lama.dev",
+    img: "/notes_store.png",
+    link: "https://notes-store-app.vercel.app",
   },
-  {
-    id: 3,
-    color: "from-violet-300 to-purple-300",
-    title: "Vanilla Book App",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
-    img: "https://images.pexels.com/photos/6894528/pexels-photo-6894528.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    link: "https://lama.dev",
-  },
-  {
-    id: 4,
-    color: "from-purple-300 to-red-300",
-    title: "Spotify Music App",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
-    img: "https://images.pexels.com/photos/18540208/pexels-photo-18540208/free-photo-of-wood-landscape-water-hill.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    link: "https://lama.dev",
-  },
+  
 ];
 
 const PortfolioPage = () => {
@@ -47,7 +24,7 @@ const PortfolioPage = () => {
 
   return (
     <motion.div
-      className="h-full w-full flex flex-col gap-16 items-center justify-center text-center"
+      className="h-full"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
@@ -64,27 +41,32 @@ const PortfolioPage = () => {
                 className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}
                 key={item.id}
               >
-                <div className="flex flex-col gap-8 text-white">
-                  <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
+                <div className="flex flex-col h-full gap-8 text-white font-serif ">
+                  <h1 className="text-xl font-bold md:text-2xl  text-white xl:text-8xl">
                     {item.title}
                   </h1>
                   <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
                     <Image src={item.img} alt="" fill />
                   </div>
-                  <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px]">
+                  <div className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px] flex justify-center items-center mb-5">
+                  <Link href={item.link} className="flex justify-end">
+                    <button className="p-2 text-sm md:p-3 md:text-md lg:p-5 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded flex justify-center items-center">See Demo</button>
+                  </Link>
+                  <p >
                     {item.desc}
                   </p>
-                  <Link href={item.link} className="flex justify-end">
-                    <button className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded">See Demo</button>
-                  </Link>
+                  </div>
                 </div>
               </div>
             ))}
           </motion.div>
         </div>
       </div>
+
+
+
       <div className="w-screen h-screen flex flex-col gap-16 mt-10 items-center justify-center text-center">
-        <h1 className="text-8xl">Do you have a project?</h1>
+        <h1 className="text-8xl">These are my Projects</h1>
         <div className="relative">
           <motion.svg
             animate={{ rotate: 360 }}
@@ -98,7 +80,7 @@ const PortfolioPage = () => {
                 d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
               />
             </defs>
-            <text fill="#04010c">
+            <text fill="#000">
               <textPath xlinkHref="#circlePath" className="text-xl">
                 Front-end Developer and Problem Solver
               </textPath>
@@ -106,11 +88,14 @@ const PortfolioPage = () => {
           </motion.svg>
           <Link
             href="/contact"
-            className="w-16 h-16 md:w-28 md:h-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-blue-500 text-white rounded-full flex items-center justify-center"
+            className="w-16 h-16 md:w-28 md:h-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-blue-700 text-white rounded-full flex items-center justify-center"
           >
             Hire Me
           </Link>
         </div>
+      </div>
+      <div>
+        <footer/>
       </div>
     </motion.div>
   );

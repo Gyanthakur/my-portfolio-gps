@@ -1,6 +1,6 @@
 {
-  "name": "lama-dev-portfolio-starter",
-  "version": "0.1.0",
+  "name": "gyan-portfolio-app",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,6 +12,7 @@
     "@emailjs/browser": "^3.12.1",
     "@phosphor-icons/react": "^2.1.5",
     "framer-motion": "^11.0.3",
+    "mdb-react-ui-kit": "^8.0.0",
     "next": "14.1.0",
     "node": "^22.1.0",
     "react": "18",
