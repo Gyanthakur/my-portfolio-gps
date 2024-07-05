@@ -206,7 +206,7 @@ const AboutPage = () => {
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    Aug/2024 - Oct/2024
+                    Aug/2023 - Oct/2023
                   </div>
                   {/* JOB COMPANY */}
                   <div className="p-1 rounded text-sm font-semibold w-fit">
