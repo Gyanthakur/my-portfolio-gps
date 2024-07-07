@@ -8,6 +8,7 @@ import { useRef } from "react";
 
 import PortfolioPage from "./portfolio/page";
 import ContactPage from "./contact/page";
+import { AnimatedPinDemo } from "./project/page";
 
 const Homepage = () => {
 	const containerRef = useRef();
@@ -59,6 +60,7 @@ const Homepage = () => {
 					<Brain scrollYProgress={scrollYProgress} />
 				</div> */}
 				<AboutPage />
+				<AnimatedPinDemo/>
 			</div>
 			<div>
 				<PortfolioPage />
