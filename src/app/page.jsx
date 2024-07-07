@@ -1,12 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import AboutPage from "./about/page";
+import Brain from "@/components/brain";
+import { useRef } from "react";
+
 import PortfolioPage from "./portfolio/page";
 import ContactPage from "./contact/page";
 
 const Homepage = () => {
+	const containerRef = useRef();
+
+	const { scrollYProgress } = useScroll({ container: containerRef });
 	return (
 		<motion.div
 			className="h-full"
@@ -48,16 +54,18 @@ const Homepage = () => {
 					</div>
 				</div>
 			</div>
-			{/* <div>
+			<div>
+				{/* <div className="hidden lg:block w-1/3 sticky top-0 z-30 xl:w-1/2">
+					<Brain scrollYProgress={scrollYProgress} />
+				</div> */}
 				<AboutPage />
-			</div> */}
+			</div>
 			<div>
 				<PortfolioPage />
 			</div>
 			<div>
 				<ContactPage />
 			</div>
-      
 		</motion.div>
 	);
 };
