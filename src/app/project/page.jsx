@@ -1,20 +1,58 @@
 "use client";
-import Brain from "@/components/brain";
-import { motion, useInView, useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 
-const AboutPage = () => {
-  const containerRef = useRef();
+const items = [
+  {
+    id: 1,
+    color: "from-red-300 to-blue-300",
+    title: "Notes-Store",
+    desc: "This is a notes store app built in Next.js and Tailwind CSS. It is a simple app that allows you to create, read, update and delete notes. and it also has a dark mode feature. hotsing your notes feature is also available.",
+    img: "/notes_store.png",
+    link: "https://notes-store-app.vercel.app",
+  },
+  {
+    id: 2,
+    color: "from-red-300 to-blue-300",
+    title: "Text Editor",
+    desc: "this is a text editior app built in react and tailwind css. it is a simple app that allows you to create, read, update and delete text. and it also has a dark mode feature.",
+    img: "/text_utils.png",
+    link: "https://gyanthakur.github.io/TextUtils/",
+  },
+  {
+    id: 3,
+    color: "from-red-300 to-blue-300",
+    title: "Portflio-v1",
+    desc: "This is my first portfolio website built in html css and javascript. it is a simple website that shows my skills, projects, and credentials .",
+    img: "/portfolio-v1.png",
+    link: "https://portfolio-gyanthakur.vercel.app/",
+  },
+  {
+    id: 4,
+    color: "from-red-300 to-blue-300",
+    title: "portfolio-v2",
+    desc: "This is my second portfolio website built in html css and javascript. it is a simple website that shows my skills and projects.",
+    img: "/portfolio-v2.png",
+    link: "https://gyanthakur.github.io/portfolio-gps/",
+  },
+  {
+    id: 5,
+    color: "from-red-300 to-blue-300",
+    title: "music-player",
+    desc: "This is a notes store app built in Next.js and Tailwind CSS. It is a simple app that allows you to create, read, update and delete notes. and it also has a dark mode feature. hotsing your notes feature is also available.",
+    img: "/music-player.png",
+    link: "https://gyanthakur.github.io/mini-spotify/",
+  },
+  
+];
 
-  const { scrollYProgress } = useScroll({ container: containerRef });
+const PortfolioPage = () => {
+  const ref = useRef();
 
-  const skillRef = useRef();
-  // const isSkillRefInView = useInView(skillRef, {once:true});
-  const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
-
-  const experienceRef = useRef();
-  const isExperienceRefInView = useInView(experienceRef, { margin: "-100px" });
+  const { scrollYProgress } = useScroll({ target: ref });
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
   return (
     <motion.div
@@ -23,283 +61,76 @@ const AboutPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      {/* CONTAINER */}
-      <div className="h-full overflow-scroll lg:flex" ref={containerRef}>
-        {/* TEXT CONTAINER */}
-        <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2">
-          {/* BIOGRAPHY CONTAINER */}
-          <div className="flex flex-col gap-12 justify-center">
-            {/* BIOGRAPHY IMAGE */}
-            <Image
-              src="/gyanim4.jpg"
-              alt=""
-              width={112}
-              height={112}
-              className="w-28 h-28 rounded-full object-cover"
-            />
-            {/* BIOGRAPHY TITLE */}
-            <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
-            {/* BIOGRAPHY DESC */}
-            <p className="text-lg">
-              I am a Full Stack Developer, and I am passionate about building
-              scalable web applications. I have experience in building web
-              applications using React, Node.js, and MongoDB. I am always
-              looking to learn new technologies and improve my skills. I am
-              currently looking for new opportunities to work on exciting
-              projects. 
+      <div className="h-[600vh] relative" ref={ref}>
+        <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center">
+          My Works
+        </div>
+        <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
+          <motion.div style={{ x }} className="flex">
+            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" />
+            {items.map((item) => (
+              <div
+                className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}
+                key={item.id}
+              >
+                <div className="flex flex-col h-full gap-8 text-white font-serif ">
+                  <h1 className="text-xl font-bold md:text-2xl  text-white xl:text-8xl">
+                    {item.title}
+                  </h1>
+                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
+                    <Image src={item.img} alt="" fill />
+                  </div>
+                  <div className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px] flex justify-center items-center mb-5">
+                  <Link href={item.link} className="flex justify-end">
+                    <button className="p-2 text-sm md:p-3 md:text-md lg:p-5 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded flex justify-center items-center">See Demo</button>
+                  </Link>
+                  <p >
+                    {item.desc}
+                  </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
 
-            </p>
-            {/* BIOGRAPHY QUOTE */}
-            <span className="italic">
-            &quot; I am always looking to learn new technologies and improve my
-              skills. &quot; - Gyan Patap Singh
-            </span>
-            {/* BIOGRAPHY SIGN SVG*/}
-            <div className="self-end">
-              <Image src="/signature.svg" width={200} height={200}></Image>
-            </div>
-            {/* BIOGRAPHY SCROLL SVG */}
-            <motion.svg
-              initial={{ opacity: 0.2, y: 0 }}
-              animate={{ opacity: 1, y: "10px" }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              width={50}
-              height={50}
-            >
-              <path
-                d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z"
-                stroke="#000000"
-                strokeWidth="1"
-              ></path>
-              <path d="M12 6V14" stroke="#000000" strokeWidth="1"></path>
-              <path
-                d="M15 11L12 14L9 11"
-                stroke="#000000"
-                strokeWidth="1"
-              ></path>
-            </motion.svg>
-          </div>
-          {/* SKILLS CONTAINER */}
-          <div className="flex flex-col gap-12 justify-center" ref={skillRef}>
-            {/* SKILL TITLE */}
-            <motion.h1
-              initial={{ x: "-300px" }}
-              animate={isSkillRefInView ? { x: 0 } : {}}
-              transition={{ delay: 0.2 }}
-              className="font-bold text-2xl"
-            >
-              SKILLS
-            </motion.h1>
-            {/* SKILL LIST */}
-            <motion.div
-              initial={{ x: "-300px" }}
-              animate={isSkillRefInView ? { x: 0 } : {}}
-              className="flex gap-4 flex-wrap"
-            >
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                JavaScript
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                TypeScript
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                React.js
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Next.js
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                CSS
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Tailwind CSS
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                MongoDB
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Postman 
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Node.js
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                C++
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Express.js
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Github
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Git
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Vite
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Git
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Figma
-              </div>
-            </motion.div>
-            {/* SKILL SCROLL SVG */}
-            <motion.svg
-              initial={{ opacity: 0.2, y: 0 }}
-              animate={{ opacity: 1, y: "10px" }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              width={50}
-              height={50}
-            >
-              <path
-                d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z"
-                stroke="#000000"
-                strokeWidth="1"
-              ></path>
-              <path d="M12 6V14" stroke="#000000" strokeWidth="1"></path>
-              <path
-                d="M15 11L12 14L9 11"
-                stroke="#000000"
-                strokeWidth="1"
-              ></path>
-            </motion.svg>
-          </div>
-          {/* EXPERIENCE CONTAINER */}
-          <div
-            className="flex flex-col gap-12 justify-center pb-48"
-            ref={experienceRef}
+
+
+      <div className="w-screen h-screen flex flex-col gap-16 mt-12 items-center justify-center text-center">
+        <h1 className="text-8xl">These are my Projects</h1>
+        <div className="relative">
+          <motion.svg
+            animate={{ rotate: 360 }}
+            transition={{ duration: 8, ease: "linear", repeat: Infinity }}
+            viewBox="0 0 300 300"
+            className="w-64 h-64 md:w-[500px] md:h-[500px] "
           >
-            {/* EXPERIENCE TITLE */}
-            <motion.h1
-              initial={{ x: "-300px" }}
-              animate={isExperienceRefInView ? { x: "0" } : {}}
-              transition={{ delay: 0.2 }}
-              className="font-bold text-2xl"
-            >
-              EXPERIENCE
-            </motion.h1>
-            {/* EXPERIENCE LIST */}
-            <motion.div
-              initial={{ x: "-300px" }}
-              animate={isExperienceRefInView ? { x: "0" } : {}}
-              className=""
-            >
-              {/* EXPERIENCE LIST ITEM */}
-              <div className="flex justify-between h-60">
-                {/* LEFT */}
-                <div className="w-1/3 ">
-                  {/* JOB TITLE */}
-                  <div className="text-green-500  p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    MERN Stack Intern
-                  </div>
-                  {/* JOB DESC */}
-                  <div className="p-3 text-sm italic">
-                  I worked on a project using the MERN stack.{" "}
-                  </div>
-                  {/* JOB DATE */}
-                  <div className="p-3 text-red-400 text-sm font-semibold">
-                    Aug/2023 - Oct/2023
-                  </div>
-                  {/* JOB COMPANY */}
-                  <div className="p-1 rounded text-sm font-semibold w-fit">
-                    <h2 className="text-blue-600">At: Web Stack Academy </h2> 
-                    
-                  </div>
-                </div>
-                {/* CENTER */}
-                <div className="w-1/6 flex justify-center">
-                  {/* LINE */}
-                  <div className="w-1 h-full bg-gray-600 rounded relative">
-                    {/* LINE CIRCLE */}
-                    <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
-                  </div>
-                </div>
-                {/* RIGHT */}
-                <div className="w-1/3 "></div>
-              </div>
-              {/* EXPERIENCE LIST ITEM */}
-              <div className="flex justify-between h-60">
-                {/* LEFT */}
-                <div className="w-1/3 "></div>
-                {/* CENTER */}
-                <div className="w-1/6 flex justify-center">
-                  {/* LINE */}
-                  <div className="w-1 h-full bg-gray-600 rounded relative">
-                    {/* LINE CIRCLE */}
-                    <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
-                  </div>
-                </div>
-                {/* RIGHT */}
-                <div className="w-1/3 ">
-                  {/* JOB TITLE */}
-                  <div className="text-green-500  p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Student 
-                  </div>
-                  {/* JOB DESC */}
-                  <div className="p-3 text-sm italic">
-                    I am currently persuing in B.Tech @Computer Sc. & engineering.{" "}
-                  </div>
-                  {/* JOB DATE */}
-                  <div className="p-3 text-red-400 text-sm font-semibold">
-                    2021 - present{" "}
-                  </div>
-                  {/* JOB COMPANY */}
-                  <div className="p-1 rounded text-sm font-semibold w-fit">
-                  <h2 className="text-blue-600">At: KNIT Sultanpur</h2>
-                  </div>
-                </div>
-              </div>
-              {/* EXPERIENCE LIST ITEM */}
-              <div className="flex justify-between h-48">
-                {/* LEFT */}
-                <div className="w-1/3 ">
-                  {/* JOB TITLE */}
-                  <div className="text-green-500 p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    FFE Schlor{" "}
-                  </div>
-                  {/* JOB DESC */}
-                  <div className="p-3 text-sm italic">
-                    I am a FFE Schlor and I am currently working on a project.{" "}
-                    
-                  </div>
-                  {/* JOB DATE */}
-                  <div className="p-3 text-red-400 text-sm font-semibold">
-                    2021 - present{" "}
-                  </div>
-                  {/* JOB COMPANY */}
-                  <div className="p-1 rounded text-sm font-semibold w-fit">
-                  <h2 className="text-blue-600">At: Foundation for Excellence (FFE) </h2>
-                  </div>
-                </div>
-                {/* CENTER */}
-                <div className="w-1/6 flex justify-center">
-                  {/* LINE */}
-                  <div className="w-1 h-full bg-gray-600 rounded relative">
-                    {/* LINE CIRCLE */}
-                    <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
-                  </div>
-                </div>
-                {/* RIGHT */}
-                <div className="w-1/3 "></div>
-              </div>
-            </motion.div>
-          </div>
+            <defs>
+              <path
+                id="circlePath"
+                d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
+              />
+            </defs>
+            <text fill="#000">
+              <textPath xlinkHref="#circlePath" className="text-xl">
+                Front-end Developer and Problem Solver
+              </textPath>
+            </text>
+          </motion.svg>
+          <Link
+            href="/contact"
+            className="w-16 h-16 md:w-28 md:h-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-blue-700 text-white rounded-full flex items-center justify-center"
+          >
+            Hire Me
+          </Link>
         </div>
-        {/* SVG CONTAINER */}
-        <div className="hidden lg:block w-1/3 sticky top-0 z-30 xl:w-1/2">
-          <Brain scrollYProgress={scrollYProgress} />
-        </div>
+      </div>
+      <div>
+        <footer/>
       </div>
     </motion.div>
   );
 };
 
-export default AboutPage;
+export default PortfolioPage;
